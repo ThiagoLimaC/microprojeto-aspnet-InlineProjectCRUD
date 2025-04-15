@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using InlineProjectCRUD.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace InlineProjectCRUD.Data
 {
@@ -8,5 +9,7 @@ namespace InlineProjectCRUD.Data
         {
 
         }
+
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
