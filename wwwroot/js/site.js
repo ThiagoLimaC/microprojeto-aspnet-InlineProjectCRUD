@@ -8,8 +8,15 @@ $(document).ready(function () {
         var value = $(this).text();
 
 
-        $.post("/Usuario/Update", { id: id, field: field, value: value} )
-
-
+        $.post("/Usuario/Update", { id: id, field: field, value: value },
+            function (response) {
+                if (response.success) {
+                    alert("Deu certo")
+                }
+                else {
+                    alert("Deu Errado")
+                }
+            }
+        })
     })
 })
