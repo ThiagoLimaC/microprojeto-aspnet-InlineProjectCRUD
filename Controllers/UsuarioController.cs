@@ -15,7 +15,7 @@ namespace InlineProjectCRUD.Controllers
         public async Task<IActionResult> Index()
         {
             var users = await _context.Usuarios.ToListAsync();
-            return View();
+            return View(users);
         }
     }
 }
