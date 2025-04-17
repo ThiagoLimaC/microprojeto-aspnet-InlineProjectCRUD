@@ -7,7 +7,39 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            th
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Endereço</th>
+            <th>Empresa</th>
+            <th>Ações</th>
         </tr>
     </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td contenteditable="true" class="editable" data-field="Nome">@user.Nome</td>
+                <td contenteditable="true" class="editable" data-field="Sobrenome">@user.Sobrenome</td>
+                <td contenteditable="true" class="editable" data-field="Email">@user.Email</td>
+                <td contenteditable="true" class="editable" data-field="Telefone">@user.Telefone</td>
+                <td contenteditable="true" class="editable" data-field="Endereco">@user.Endereco</td>
+                <td contenteditable="true" class="editable" data-field="Empresa">@user.Empresa</td>
+                <td>
+                    <button class="btn btn-danger btn-sm btn-delete">Remover</button>
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td contenteditable="true" class="new-data"></td>
+            <td contenteditable="true" class="new-data"></td>
+            <td contenteditable="true" class="new-data"></td>
+            <td contenteditable="true" class="new-data"></td>
+            <td contenteditable="true" class="new-data"></td>
+            <td contenteditable="true" class="new-data"></td>
+            <td><button class="btn btn-sucess btn-sm btn-add">Adicionar</button></td>
+        </tr>
+    </tbody>
 </table>
