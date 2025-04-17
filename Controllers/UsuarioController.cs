@@ -39,5 +39,17 @@ namespace InlineProjectCRUD.Controllers
 
             return Json(new { success = true });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var user = await _context.Usuarios.FindAsync(id);
+            if (user == null) return Json(new { success = false });
+
+            _context.Usuarios.Remove(user);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true });
+        }
     }
 }
