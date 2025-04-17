@@ -19,7 +19,7 @@
     <tbody>
         @foreach (var user in Model)
         {
-            <tr>
+            <tr data-id="@user.Id">
                 <td contenteditable="true" class="editable" data-field="Nome">@user.Nome</td>
                 <td contenteditable="true" class="editable" data-field="Sobrenome">@user.Sobrenome</td>
                 <td contenteditable="true" class="editable" data-field="Email">@user.Email</td>

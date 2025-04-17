@@ -1,4 +1,15 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
 
-// Write your JavaScript code.
+$(document).ready(function () {
+    $(".editable").on("blur", function () {
+        var row = $(this).closest("tr");
+        var id = row.attr("data-id");
+        var field = $(this).attr("data-field");
+        var value = $(this).text();
+
+
+        $.post("/Usuario/Update", { id: id, field: field, value: value} )
+
+
+    })
+})
