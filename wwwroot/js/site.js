@@ -50,5 +50,40 @@ $(document).ready(function () {
         })
     })
 
-    $(document).on("click", ".btn-delete", function () {
+    $(document).on("click", ".btn-add", function () {
+        var row = $("#newUserRow")
+
+        var user = {
+            Nome: row.find("td:eq(0)").text(),
+            Sobrenome: row.find("td:eq(1)").text(),
+            Email: row.find("td:eq(2)").text(),
+            Telefone: row.find("td:eq(3)").text(),
+            Endereco: row.find("td:eq(4)").text(),
+            Empresa: row.find("td:eq(5)").text(),
+        }
+
+        $.post("/Usuario/Add", user, function (response) {
+            if (response.success) {
+                showMessage("success", "Usuário cadastrado com sucesso!")
+
+                var newRow = "< tr data-id='" + user.Id + "' >" +
+                    "<td contenteditable='true' class='editable' data-field='Nome'>" + user.Nome + "</td>" +
+                    "<td contenteditable='true' class='editable' data-field='Sobrenome'>" + user.Sobrenome + "</td>" +
+                    "<td contenteditable='true' class='editable' data-field='Email'>" + user.Email + "</td>" +
+                    "<td contenteditable='true' class='editable' data-field='Telefone'>" + user.Telefone + "</td>" +
+                    "<td contenteditable='true' class='editable' data-field='Endereco'>" + user.Endereco + "</td>" +
+                    "<td contenteditable='true' class='editable' data-field='Empresa'>" + user.Empresa + "</td>" +
+                    "<td><button class='btn btn-danger btn-sm btn-delete'>Remover</button></td>" +
+                    "</tr>" +
+
+                    $("table tbody").append(newRow);
+
+                
+            } else {
+                showMessage("danger", "Erro ao cadastrar usuário!")
+            }
+        }).fail(function () {
+            showMessage("danger", "Erro na comunicação com o servidor");
+        })
+    })
 })

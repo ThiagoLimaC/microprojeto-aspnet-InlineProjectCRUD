@@ -1,4 +1,5 @@
 ﻿using InlineProjectCRUD.Data;
+using InlineProjectCRUD.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -50,6 +51,15 @@ namespace InlineProjectCRUD.Controllers
             await _context.SaveChangesAsync();
 
             return Json(new { success = true });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(Usuario user)
+        {
+            _context.Usuarios.Add(user);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true, userId = user.Id });
         }
     }
 }
