@@ -50,6 +50,8 @@ Este é um projeto Blazor que implementa um CRUD (Create, Read, Update, Delete) 
 ### Depuração do Blazor
 - Utilize breakpoints no Visual Studio 2022 para depurar o código C#.
 
+## Créditos
 
+Este projeto foi inspirado pelo tutorial de Crislaine D´Paula disponível no canal do YouTube. Agradecimentos especiais a Crislaine por compartilhar seu conhecimento e ajudar a comunidade de desenvolvedores.
    
    
