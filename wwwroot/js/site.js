@@ -66,7 +66,7 @@ $(document).ready(function () {
             if (response.success) {
                 showMessage("success", "Usuário cadastrado com sucesso!")
 
-                var newRow = "< tr data-id='" + user.Id + "' >" +
+                var newRow = "<tr data-id='" + response.userId + "' >" +
                     "<td contenteditable='true' class='editable' data-field='Nome'>" + user.Nome + "</td>" +
                     "<td contenteditable='true' class='editable' data-field='Sobrenome'>" + user.Sobrenome + "</td>" +
                     "<td contenteditable='true' class='editable' data-field='Email'>" + user.Email + "</td>" +
@@ -74,11 +74,24 @@ $(document).ready(function () {
                     "<td contenteditable='true' class='editable' data-field='Endereco'>" + user.Endereco + "</td>" +
                     "<td contenteditable='true' class='editable' data-field='Empresa'>" + user.Empresa + "</td>" +
                     "<td><button class='btn btn-danger btn-sm btn-delete'>Remover</button></td>" +
-                    "</tr>" +
+                    "</tr>";
 
-                    $("table tbody").append(newRow);
+                $("table tbody").append(newRow);
 
-                
+                $("#newUserRow").remove();
+
+                var rowEmpty = "<tr data-id='newUserRow' >" +
+                    "<td contenteditable='true' class='new-data'></td>" +
+                    "<td contenteditable='true' class='new-data'></td>" +
+                    "<td contenteditable='true' class='new-data'></td>" +
+                    "<td contenteditable='true' class='new-data'></td>" +
+                    "<td contenteditable='true' class='new-data'></td>" +
+                    "<td contenteditable='true' class='new-data'></td>" +
+                    "<td><button class='btn btn-success btn-sm btn-add'>Adicionar</button></td>" +
+                    "</tr>"
+
+                $("table tbody").append(rowEmpty);
+
             } else {
                 showMessage("danger", "Erro ao cadastrar usuário!")
             }
